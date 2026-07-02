@@ -1,0 +1,22 @@
+{
+  "name": "vedmeet-server",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "VedMeet-Server"
+  },
+  "license": "ISC",
+  "author": "Bed Prasad Pokharel",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "http": "^0.0.1-security",
+    "nodemon": "^3.1.14",
+    "socket.io": "^4.8.3"
+  }
+}
