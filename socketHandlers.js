@@ -9,5 +9,15 @@ socket.on('createRoom',()=>{
   socket.join(roomId);
   socket.emit('room-created',{roomId});
 });
+socket.on('joinRoom',(data)=>{
+  socket.join(data.roomId);
+ console.log(data);
+});
+socket.on('offer',(data)=>{
+  socket.to(data.roomId).emit('answer', { offer: data.offer });
+});
+socket.on("ice-candidate", (data) => {
+  socket.to(data.roomId).emit("ice-candidate", { candidate: data.candidate });
+});
 }
 module.exports = { handleSocketConnection };
