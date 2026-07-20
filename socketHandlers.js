@@ -14,10 +14,16 @@ socket.on('joinRoom',(data)=>{
  console.log(data);
 });
 socket.on('offer',(data)=>{
-  socket.to(data.roomId).emit('answer', { offer: data.offer });
+  socket.to(data.RoomId).emit('offer', { offer: data.offer });
+  console.log("offers are received");
+});
+socket.on('answer',(data)=>{
+  socket.to(data.RoomId).emit('answer', { answer: data.answer });
+  console.log("answer", data);
 });
 socket.on("ice-candidate", (data) => {
-  socket.to(data.roomId).emit("ice-candidate", { candidate: data.candidate });
+  socket.to(data.RoomId).emit("ice-candidate", { candidate: data.candidate });
+console.log("ICE candidate received:");
 });
 }
 module.exports = { handleSocketConnection };
