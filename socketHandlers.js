@@ -12,6 +12,7 @@ socket.on('createRoom',()=>{
 socket.on('joinRoom',(data)=>{
   socket.join(data.roomId);
  console.log(data);
+   socket.to(data.roomId).emit('user-joined', { socketId: socket.id });
 });
 socket.on('offer',(data)=>{
   socket.to(data.RoomId).emit('offer', { offer: data.offer });
